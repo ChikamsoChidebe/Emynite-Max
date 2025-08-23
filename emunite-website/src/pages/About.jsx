@@ -19,7 +19,7 @@ const About = () => {
     {
       icon: Target,
       title: "Excellence",
-      description: "We strive for excellence in every project, ensuring the highest quality standards and customer satisfaction."
+      description: "We strive for excellence in all project, ensuring the highest quality standards and customer satisfaction."
     },
     {
       icon: Users,
