@@ -28,6 +28,7 @@ const Navbar = () => {
         { name: 'Agricultural Processing', path: '/agriculture' },
         { name: 'Import & Export', path: '/import-export' },
         { name: 'Contract Services', path: '/contract-services' },
+        { name: 'Mining & Minerals', path: '/mining' },
       ]
     },
     { name: 'Investors', path: '/investors' },
