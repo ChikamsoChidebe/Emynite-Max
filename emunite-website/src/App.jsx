@@ -12,10 +12,12 @@ import ContractServices from './pages/ContractServices'
 import Investors from './pages/Investors'
 import Contact from './pages/Contact'
 import WhatsAppButton from './components/WhatsAppButton'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-gray-50">
         <Navbar />
         <motion.main
