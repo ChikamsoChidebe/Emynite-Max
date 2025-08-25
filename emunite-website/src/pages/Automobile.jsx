@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import SEO from '../components/SEO'
 import { 
   Car, 
   Fuel, 
@@ -154,6 +155,11 @@ const Automobile = () => {
 
   return (
     <div className="pt-28 lg:pt-32">
+      <SEO 
+        title="Quality Automobiles for Sale in Nigeria - New & Tukumbo Cars | Emynite Max"
+        description="Buy new and certified pre-owned vehicles in Nigeria. Car importation, financing, maintenance services. Toyota, Mercedes, BMW and more quality automobiles."
+        keywords="cars for sale Nigeria, automobile Nigeria, Tukumbo cars, car importation Nigeria, vehicle financing, car maintenance Lagos"
+      />
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-primary-800 to-purple-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">

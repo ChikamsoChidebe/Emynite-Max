@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import SEO from '../components/SEO'
 import { 
   Users, 
   Target, 
@@ -100,6 +101,11 @@ const About = () => {
 
   return (
     <div className="pt-28 lg:pt-32">
+      <SEO 
+        title="About Emynite Max Global Enterprise - Leading Nigerian Multi-Sector Company"
+        description="Learn about Emynite Max Global Enterprise, Nigeria's trusted multi-sector business leader in real estate, automobiles, agriculture, mining and international trade since 2014."
+        keywords="About Emynite Max, Nigerian company history, multi-sector business Nigeria, Mr Stanley CEO, business enterprise Lagos"
+      />
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-primary-800 to-purple-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -167,7 +173,8 @@ const About = () => {
             >
               <img
                 src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Company Building"
+                alt="Emynite Max Global Enterprise office building in Nigeria"
+                loading="lazy"
                 className="rounded-2xl shadow-2xl"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-purple-600/20 rounded-2xl" />

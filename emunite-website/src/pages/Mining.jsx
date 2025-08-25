@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import SEO from '../components/SEO'
 import { Mountain, Gem, Truck, Shield, CheckCircle, ArrowRight, MapPin, TrendingUp } from 'lucide-react'
 
 const Mining = () => {
@@ -51,6 +52,11 @@ const Mining = () => {
 
   return (
     <div className="pt-28 lg:pt-32">
+      <SEO 
+        title="Mining & Minerals Export from Nigeria - Cassiterite, Gold, Iron Ore | Emynite Max"
+        description="Premium Nigerian minerals for global export. Cassiterite (tin ore), gold ore, iron ore with international quality standards. Mining operations and processing."
+        keywords="mining Nigeria, cassiterite export, gold ore Nigeria, iron ore mining, mineral export Nigeria, tin ore, mining operations"
+      />
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-gray-800 to-slate-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,7 +110,8 @@ const Mining = () => {
                 <div className="relative h-64">
                   <img
                     src={mineral.image}
-                    alt={mineral.name}
+                    alt={`${mineral.name} mining and processing by Emynite Max Nigeria`}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-4 right-4 bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-sm font-bold">

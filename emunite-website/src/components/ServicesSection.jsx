@@ -129,7 +129,8 @@ const ServicesSection = () => {
               <div className="relative h-48 overflow-hidden">
                 <img
                   src={service.image}
-                  alt={service.title}
+                  alt={`${service.title} services by Emynite Max Global Enterprise`}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-80`} />

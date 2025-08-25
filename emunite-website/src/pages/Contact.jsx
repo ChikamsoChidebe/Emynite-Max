@@ -1,9 +1,15 @@
 import { motion } from 'framer-motion'
+import SEO from '../components/SEO'
 import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from 'lucide-react'
 
 const Contact = () => {
   return (
     <div className="pt-28 lg:pt-32">
+      <SEO 
+        title="Contact Emynite Max Global Enterprise - Get Quote for Business Services Nigeria"
+        description="Contact Emynite Max for real estate, automobile, agriculture, mining and business services in Nigeria. Call +234 803 092 4734 or email emynitemaxglobal24@gmail.com"
+        keywords="contact Emynite Max, business services Nigeria, get quote, +234 803 092 4734, emynitemaxglobal24@gmail.com, Lagos office"
+      />
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-primary-800 to-purple-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

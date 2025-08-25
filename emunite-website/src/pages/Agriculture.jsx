@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import SEO from '../components/SEO'
 import { Wheat, Globe, Award, Truck, CheckCircle, ArrowRight, Leaf, Package, Shield } from 'lucide-react'
 
 const Agriculture = () => {
@@ -63,6 +64,11 @@ const Agriculture = () => {
 
   return (
     <div className="pt-28 lg:pt-32">
+      <SEO 
+        title="Agricultural Processing & Export from Nigeria - Cocoa, Ginger, Garlic | Emynite Max"
+        description="Premium Nigerian agricultural products for export. Cocoa processing, ginger, garlic, palm nuts. International quality standards and global market reach."
+        keywords="agriculture export Nigeria, cocoa processing, ginger export, garlic Nigeria, palm nuts, agricultural products Nigeria, farm to export"
+      />
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-green-800 to-emerald-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import SEO from '../components/SEO'
 import { 
   Building2, 
   MapPin, 
@@ -148,6 +149,11 @@ const RealEstate = () => {
 
   return (
     <div className="pt-28 lg:pt-32">
+      <SEO 
+        title="Premium Real Estate in Nigeria - Properties for Sale & Investment | Emynite Max"
+        description="Discover luxury residential and commercial properties in Lagos, Abuja. International real estate investment opportunities in Nigeria's growing property market."
+        keywords="real estate Nigeria, properties for sale Lagos, commercial property Nigeria, real estate investment, luxury homes Nigeria, property management"
+      />
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-primary-800 to-purple-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
