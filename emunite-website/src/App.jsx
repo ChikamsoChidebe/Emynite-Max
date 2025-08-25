@@ -12,6 +12,7 @@ import ContractServices from './pages/ContractServices'
 import Investors from './pages/Investors'
 import Contact from './pages/Contact'
 import Mining from './pages/Mining'
+import Sitemap from './pages/Sitemap'
 import WhatsAppButton from './components/WhatsAppButton'
 import ScrollToTop from './components/ScrollToTop'
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/investors" element={<Investors />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/mining" element={<Mining />} />
+            <Route path="/sitemap" element={<Sitemap />} />
           </Routes>
         </motion.main>
         <Footer />
