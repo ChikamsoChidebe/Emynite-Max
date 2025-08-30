@@ -14,6 +14,7 @@ import Contact from './pages/Contact'
 import Mining from './pages/Mining'
 import Sitemap from './pages/Sitemap'
 import WhatsAppButton from './components/WhatsAppButton'
+import ChatWidget from './components/ChatWidget'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         </motion.main>
         <Footer />
         <WhatsAppButton />
+        <ChatWidget />
       </div>
     </Router>
   )
