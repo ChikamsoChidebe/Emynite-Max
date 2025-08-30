@@ -79,9 +79,11 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">E</span>
-                </div>
+                <img 
+                  src="/logo.jpeg" 
+                  alt="Emynite Max Logo" 
+                  className="w-12 h-12 object-contain rounded-lg bg-white p-1"
+                />
                 <div>
                   <h2 className="text-xl font-bold">Emynite Max</h2>
                   <p className="text-gray-400 text-sm">Global Enterprise</p>

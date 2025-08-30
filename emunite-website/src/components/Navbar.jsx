@@ -80,9 +80,11 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-16 lg:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">E</span>
-              </div>
+              <img 
+                src="/logo.jpeg" 
+                alt="Emynite Max Logo" 
+                className="w-12 h-12 object-contain rounded-lg"
+              />
               <div>
                 <h1 className="text-xl font-bold text-gray-900">Emynite Max</h1>
                 <p className="text-sm text-gray-600">Global Enterprise</p>
