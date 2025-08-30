@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import PropertyGallery from './PropertyGallery'
 import { 
   X, 
   MapPin, 
@@ -9,10 +11,14 @@ import {
   Mail,
   MessageCircle,
   Calendar,
-  CheckCircle
+  CheckCircle,
+  Camera,
+  ZoomIn
 } from 'lucide-react'
 
 const PropertyModal = ({ property, isOpen, onClose }) => {
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false)
+  
   if (!property) return null
 
   const handleWhatsApp = () => {
@@ -60,12 +66,29 @@ const PropertyModal = ({ property, isOpen, onClose }) => {
 
             <div className="flex flex-col lg:flex-row">
               {/* Image Section */}
-              <div className="lg:w-1/2">
+              <div className="lg:w-1/2 relative">
                 <img
                   src={property.image}
                   alt={property.title}
-                  className="w-full h-64 lg:h-full object-cover"
+                  className="w-full h-64 lg:h-full object-cover cursor-pointer"
+                  onClick={() => setIsGalleryOpen(true)}
                 />
+                
+                {/* Gallery Button */}
+                {property.images && property.images.length > 1 && (
+                  <button
+                    onClick={() => setIsGalleryOpen(true)}
+                    className="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-2 rounded-lg flex items-center space-x-2 hover:bg-black/80 transition-colors"
+                  >
+                    <Camera className="w-4 h-4" />
+                    <span className="text-sm">{property.images.length} Photos</span>
+                  </button>
+                )}
+                
+                {/* Zoom Indicator */}
+                <div className="absolute top-4 left-4 bg-black/70 text-white p-2 rounded-lg opacity-0 hover:opacity-100 transition-opacity">
+                  <ZoomIn className="w-4 h-4" />
+                </div>
               </div>
 
               {/* Content Section */}
@@ -170,6 +193,14 @@ const PropertyModal = ({ property, isOpen, onClose }) => {
               </div>
             </div>
           </motion.div>
+          
+          {/* Property Gallery */}
+          <PropertyGallery 
+            images={property.images || [property.image]}
+            isOpen={isGalleryOpen}
+            onClose={() => setIsGalleryOpen(false)}
+            title={property.title}
+          />
         </div>
       )}
     </AnimatePresence>
