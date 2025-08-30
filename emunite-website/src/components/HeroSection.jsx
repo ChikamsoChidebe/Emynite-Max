@@ -11,7 +11,7 @@ const HeroSection = () => {
       title: "Premium Real Estate Solutions",
       subtitle: "Discover Your Dream Property",
       description: "From luxury residential properties to prime commercial spaces, we offer exceptional real estate opportunities across Nigeria with international investment potential.",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80",
+      image: "/WhatsApp Image 2025-08-29 at 1.25.41 PM.jpeg",
       cta: "Explore Properties",
       link: "/real-estate",
       icon: Building2,

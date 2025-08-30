@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import SEO from '../components/SEO'
+import PropertyModal from '../components/PropertyModal'
+import { properties, propertyTypes } from '../data/properties'
 import { 
   Building2, 
   MapPin, 
@@ -15,107 +17,27 @@ import {
   Star,
   TrendingUp,
   Globe,
-  Shield
+  Shield,
+  Phone
 } from 'lucide-react'
 
 const RealEstate = () => {
   const [activeFilter, setActiveFilter] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
+  const [selectedProperty, setSelectedProperty] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const propertyTypes = [
-    { id: 'all', name: 'All Properties' },
-    { id: 'residential', name: 'Residential' },
-    { id: 'commercial', name: 'Commercial' },
-    { id: 'land', name: 'Land' },
-    { id: 'luxury', name: 'Luxury' }
-  ]
+  const openPropertyModal = (property) => {
+    setSelectedProperty(property)
+    setIsModalOpen(true)
+  }
 
-  const properties = [
-    {
-      id: 1,
-      title: "Luxury 4-Bedroom Duplex",
-      type: "residential",
-      price: "₦85,000,000",
-      location: "Lekki Phase 1, Lagos",
-      bedrooms: 4,
-      bathrooms: 5,
-      area: "450 sqm",
-      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Swimming Pool", "BQ", "Fitted Kitchen", "Parking"],
-      status: "For Sale",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "Modern Office Complex",
-      type: "commercial",
-      price: "₦250,000,000",
-      location: "Victoria Island, Lagos",
-      bedrooms: null,
-      bathrooms: 8,
-      area: "1200 sqm",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Elevator", "Generator", "Parking", "Security"],
-      status: "For Sale",
-      featured: true
-    },
-    {
-      id: 3,
-      title: "Prime Commercial Land",
-      type: "land",
-      price: "₦45,000,000",
-      location: "Abuja FCT",
-      bedrooms: null,
-      bathrooms: null,
-      area: "2000 sqm",
-      image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["C of O", "Survey Plan", "Fenced", "Accessible"],
-      status: "For Sale",
-      featured: false
-    },
-    {
-      id: 4,
-      title: "3-Bedroom Apartment",
-      type: "residential",
-      price: "₦35,000,000",
-      location: "Ikeja GRA, Lagos",
-      bedrooms: 3,
-      bathrooms: 4,
-      area: "180 sqm",
-      image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Balcony", "Fitted Kitchen", "Parking", "Security"],
-      status: "For Sale",
-      featured: false
-    },
-    {
-      id: 5,
-      title: "Luxury Penthouse",
-      type: "luxury",
-      price: "₦180,000,000",
-      location: "Banana Island, Lagos",
-      bedrooms: 5,
-      bathrooms: 6,
-      area: "600 sqm",
-      image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Rooftop Terrace", "Gym", "Wine Cellar", "Smart Home"],
-      status: "For Sale",
-      featured: true
-    },
-    {
-      id: 6,
-      title: "Shopping Mall",
-      type: "commercial",
-      price: "₦500,000,000",
-      location: "Port Harcourt, Rivers",
-      bedrooms: null,
-      bathrooms: 12,
-      area: "3000 sqm",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Food Court", "Parking", "Escalators", "Central AC"],
-      status: "For Sale",
-      featured: false
-    }
-  ]
+  const closePropertyModal = () => {
+    setIsModalOpen(false)
+    setSelectedProperty(null)
+  }
+
+
 
   const investmentBenefits = [
     {
@@ -343,11 +265,24 @@ const RealEstate = () => {
                     )}
                   </div>
 
-                  {/* CTA Button */}
-                  <button className="w-full bg-primary-600 text-white py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors flex items-center justify-center space-x-2">
-                    <span>View Details</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                  {/* CTA Buttons */}
+                  <div className="flex gap-2">
+                    <button 
+                      onClick={() => openPropertyModal(property)}
+                      className="flex-1 bg-primary-600 text-white py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors flex items-center justify-center space-x-2"
+                    >
+                      <span>View Details</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <a
+                      href={`https://wa.me/2348030924734?text=Hi, I'm interested in ${property.title} - ${property.price}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center"
+                    >
+                      <Phone className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -425,6 +360,13 @@ const RealEstate = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Property Modal */}
+      <PropertyModal 
+        property={selectedProperty}
+        isOpen={isModalOpen}
+        onClose={closePropertyModal}
+      />
     </div>
   )
 }
