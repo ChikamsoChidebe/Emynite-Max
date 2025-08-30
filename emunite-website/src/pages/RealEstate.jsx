@@ -92,6 +92,13 @@ const RealEstate = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
+            <div className="flex justify-center mb-8">
+              <img 
+                src="/logo.jpeg" 
+                alt="Emynite Max Logo" 
+                className="w-20 h-20 object-contain bg-white/10 rounded-xl p-2"
+              />
+            </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Premium <span className="text-gold-400">Real Estate</span>
             </h1>

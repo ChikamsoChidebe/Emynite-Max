@@ -102,6 +102,13 @@ const ServicesSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <div className="flex justify-center mb-6">
+            <img 
+              src="/logo.jpeg" 
+              alt="Emynite Max Logo" 
+              className="w-16 h-16 object-contain"
+            />
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-purple-600">Services</span>
           </h2>

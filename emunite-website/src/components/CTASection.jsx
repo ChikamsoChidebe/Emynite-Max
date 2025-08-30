@@ -20,6 +20,16 @@ const CTASection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
+            <div className="flex items-center space-x-4 mb-6">
+              <img 
+                src="/logo.jpeg" 
+                alt="Emynite Max Logo" 
+                className="w-12 h-12 object-contain bg-white/10 rounded-lg p-1"
+              />
+              <div className="text-white/80 text-sm font-medium">
+                Emynite Max Global Enterprise
+              </div>
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
               Ready to Start Your 
               <span className="text-gold-400"> Success Journey?</span>

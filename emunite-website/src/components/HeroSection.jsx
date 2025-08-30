@@ -74,6 +74,15 @@ const HeroSection = () => {
           {/* Overlay */}
           <div className={`absolute inset-0 bg-gradient-to-r ${slides[currentSlide].gradient} opacity-80`} />
           
+          {/* Logo Watermark */}
+          <div className="absolute top-8 left-8 z-20">
+            <img 
+              src="/logo.jpeg" 
+              alt="Emynite Max Logo" 
+              className="w-16 h-16 object-contain bg-white/10 backdrop-blur-sm rounded-lg p-2"
+            />
+          </div>
+          
           {/* Content */}
           <div className="relative z-10 h-full flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
