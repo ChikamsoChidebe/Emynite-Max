@@ -8,7 +8,7 @@ const ChatWidget = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hello! I'm the Emynite Max AI assistant. I can help you with information about our real estate properties, automobile sales, agricultural services, and investment opportunities. How can I assist you today?",
+      text: "Hi! I'm Emynite Max AI. Ask me about properties, cars, agriculture, or investments. How can I help?",
       sender: 'bot',
       timestamp: new Date()
     }
