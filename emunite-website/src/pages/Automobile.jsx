@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import SEO from '../components/SEO'
+import { useAdminData } from '../hooks/useAdminData'
 import { 
   Car, 
   Fuel, 
@@ -19,6 +20,7 @@ import {
 } from 'lucide-react'
 
 const Automobile = () => {
+  const data = useAdminData()
   const [activeCategory, setActiveCategory] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
 
@@ -31,98 +33,7 @@ const Automobile = () => {
     { id: 'sedan', name: 'Sedans' }
   ]
 
-  const vehicles = [
-    {
-      id: 1,
-      name: "Mercedes-Benz C-Class 2023",
-      category: "new",
-      price: "₦28,500,000",
-      year: 2023,
-      mileage: "0 km",
-      fuel: "Petrol",
-      transmission: "Automatic",
-      image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Leather Seats", "Sunroof", "MBUX Navigation", "Backup Camera"],
-      condition: "Brand New",
-      rating: 4.9,
-      featured: true
-    },
-    {
-      id: 2,
-      name: "Mercedes-Benz GLE 2022",
-      category: "luxury",
-      price: "₦45,000,000",
-      year: 2022,
-      mileage: "15,000 km",
-      fuel: "Petrol",
-      transmission: "Automatic",
-      image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Burmester Sound", "Heated Seats", "Panoramic Roof", "4MATIC AWD"],
-      condition: "Excellent",
-      rating: 4.8,
-      featured: true
-    },
-    {
-      id: 3,
-      name: "Mercedes-Benz E-Class 2020",
-      category: "tukumbo",
-      price: "₦22,800,000",
-      year: 2020,
-      mileage: "35,000 km",
-      fuel: "Petrol",
-      transmission: "Automatic",
-      image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["MBUX System", "Cruise Control", "AMG Wheels", "Climate Control"],
-      condition: "Very Good",
-      rating: 4.6,
-      featured: false
-    },
-    {
-      id: 4,
-      name: "Mercedes-Benz G-Class 2023",
-      category: "suv",
-      price: "₦85,000,000",
-      year: 2023,
-      mileage: "0 km",
-      fuel: "Petrol",
-      transmission: "Automatic",
-      image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["4MATIC", "Off-Road Package", "AMG Styling", "Premium Interior"],
-      condition: "Brand New",
-      rating: 4.9,
-      featured: true
-    },
-    {
-      id: 5,
-      name: "Mercedes-Benz S-Class 2021",
-      category: "sedan",
-      price: "₦65,500,000",
-      year: 2021,
-      mileage: "18,000 km",
-      fuel: "Petrol",
-      transmission: "Automatic",
-      image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Executive Package", "Burmester 3D Audio", "Wireless Charging", "LED Matrix Lights"],
-      condition: "Excellent",
-      rating: 4.7,
-      featured: false
-    },
-    {
-      id: 6,
-      name: "Mercedes-Benz GLC 2022",
-      category: "luxury",
-      price: "₦38,000,000",
-      year: 2022,
-      mileage: "12,000 km",
-      fuel: "Petrol",
-      transmission: "Automatic",
-      image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Premium Audio", "Ventilated Seats", "Head-up Display", "Safety Package"],
-      condition: "Like New",
-      rating: 4.8,
-      featured: false
-    }
-  ]
+  const vehicles = data.automobiles || []
 
   const services = [
     {
@@ -147,7 +58,7 @@ const Automobile = () => {
     }
   ]
 
-  const filteredVehicles = vehicles.filter(vehicle => {
+  const filteredVehicles = (vehicles || []).filter(vehicle => {
     const matchesCategory = activeCategory === 'all' || vehicle.category === activeCategory
     const matchesSearch = vehicle.name.toLowerCase().includes(searchTerm.toLowerCase())
     return matchesCategory && matchesSearch

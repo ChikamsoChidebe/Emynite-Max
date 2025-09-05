@@ -1,31 +1,11 @@
 import { motion } from 'framer-motion'
 import SEO from '../components/SEO'
 import { Mountain, Gem, Truck, Shield, CheckCircle, ArrowRight, MapPin, TrendingUp } from 'lucide-react'
+import { useAdminData } from '../hooks/useAdminData'
 
 const Mining = () => {
-  const minerals = [
-    {
-      name: "Cassiterite",
-      description: "High-grade tin ore with excellent purity levels for industrial applications",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      purity: "95%+",
-      applications: ["Electronics", "Soldering", "Alloys", "Coatings"]
-    },
-    {
-      name: "Gold Ore",
-      description: "Premium gold deposits with high concentration and quality extraction",
-      image: "https://images.unsplash.com/photo-1610375461246-83df859d849d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      purity: "98%+",
-      applications: ["Jewelry", "Electronics", "Investment", "Industrial"]
-    },
-    {
-      name: "Iron Ore",
-      description: "High-quality iron ore suitable for steel production and manufacturing",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      purity: "92%+",
-      applications: ["Steel Production", "Construction", "Manufacturing", "Infrastructure"]
-    }
-  ]
+  const data = useAdminData()
+  const minerals = data.minerals || []
 
   const services = [
     {
@@ -98,7 +78,7 @@ const Mining = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {minerals.map((mineral, index) => (
+            {(minerals || []).map((mineral, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -113,6 +93,9 @@ const Mining = () => {
                     alt={`${mineral.name} mining and processing by Emynite Max Nigeria`}
                     loading="lazy"
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.src = 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                    }}
                   />
                   <div className="absolute top-4 right-4 bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-sm font-bold">
                     {mineral.purity}

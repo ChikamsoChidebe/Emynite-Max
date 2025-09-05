@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clear All Admin Data</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
+        button { padding: 15px 30px; font-size: 16px; margin: 10px; cursor: pointer; }
+        .clear-btn { background: #dc2626; color: white; border: none; border-radius: 5px; }
+        .clear-btn:hover { background: #b91c1c; }
+        .success { color: #16a34a; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Clear All Admin Data</h1>
+    <p>This will clear all admin data and force re-initialization with sample data.</p>
+    <button class="clear-btn" onclick="clearAllData()">Clear All Admin Data</button>
+    <div id="result"></div>
+
+    <script>
+        function clearAllData() {
+            const keys = [
+                'admin_properties',
+                'admin_automobiles', 
+                'admin_agriculture',
+                'admin_minerals',
+                'admin_investments',
+                'admin_contracts',
+                'admin_importExport',
+                'admin_auth'
+            ];
+            
+            keys.forEach(key => {
+                localStorage.removeItem(key);
+            });
+            
+            document.getElementById('result').innerHTML = 
+                '<div class="success">✅ All admin data cleared successfully!<br>Please go back to admin and login again.</div>';
+        }
+    </script>
+</body>
+</html>

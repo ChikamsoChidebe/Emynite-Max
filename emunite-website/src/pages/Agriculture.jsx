@@ -1,37 +1,24 @@
 import { motion } from 'framer-motion'
 import SEO from '../components/SEO'
+import { useAdminData } from '../hooks/useAdminData'
 import { Wheat, Globe, Award, Truck, CheckCircle, ArrowRight, Leaf, Package, Shield } from 'lucide-react'
 
 const Agriculture = () => {
-  const products = [
-    {
-      name: "Premium Cocoa",
-      description: "High-quality cocoa beans processed to international standards",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      markets: ["Europe", "Asia", "Americas"],
-      certifications: ["Organic", "Fair Trade", "ISO 22000"]
-    },
-    {
-      name: "Fresh Ginger",
-      description: "Premium quality ginger with excellent flavor and medicinal properties",
-      image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      markets: ["Middle East", "Europe", "North America"],
-      certifications: ["Organic", "HACCP", "Global GAP"]
-    },
-    {
-      name: "Quality Garlic",
-      description: "Fresh garlic bulbs with strong aroma and long shelf life",
-      image: "https://images.unsplash.com/photo-1583663848850-46af132dc08e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      markets: ["Asia", "Europe", "Africa"],
-      certifications: ["Organic", "ISO 9001", "HACCP"]
-    },
-    {
-      name: "Palm Nuts",
-      description: "High-quality palm nuts for oil production and industrial use",
-      image: "https://images.unsplash.com/photo-1566281796817-93bc94d7dbd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      markets: ["Asia", "Europe", "Americas"],
-      certifications: ["RSPO", "ISO 14001", "HACCP"]
-    }
+  const data = useAdminData()
+  const products = data.agriculture || []
+  
+  const categories = [
+    "All Products",
+    "Cash Crops",
+    "Spices & Herbs", 
+    "Oil Seeds",
+    "Superfoods",
+    "Natural Oils",
+    "Processed Foods",
+    "Dried Vegetables",
+    "Tree Nuts",
+    "Medicinal Plants",
+    "Natural Products"
   ]
 
   const processSteps = [
@@ -122,7 +109,7 @@ const Agriculture = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <motion.div
                 key={index}

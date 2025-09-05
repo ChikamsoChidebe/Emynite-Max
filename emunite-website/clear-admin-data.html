@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clear Admin Data</title>
+</head>
+<body>
+    <h1>Clear Admin Data</h1>
+    <button onclick="clearData()">Clear All Admin Data</button>
+    <p id="status"></p>
+    
+    <script>
+        function clearData() {
+            // Clear all admin data
+            localStorage.removeItem('admin_properties');
+            localStorage.removeItem('admin_automobiles');
+            localStorage.removeItem('admin_agriculture');
+            localStorage.removeItem('admin_investments');
+            localStorage.removeItem('admin_contracts');
+            localStorage.removeItem('admin_mining');
+            localStorage.removeItem('admin_importExport');
+            localStorage.removeItem('admin_auth');
+            
+            document.getElementById('status').innerHTML = 'Admin data cleared! Refresh the admin page to see new counts.';
+        }
+    </script>
+</body>
+</html>

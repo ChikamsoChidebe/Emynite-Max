@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import SEO from '../components/SEO'
 import PropertyModal from '../components/PropertyModal'
-import { properties, propertyTypes } from '../data/properties'
+import { propertyTypes } from '../data/properties'
+import { useAdminData } from '../hooks/useAdminData'
 import { 
   Building2, 
   MapPin, 
@@ -26,6 +27,7 @@ const RealEstate = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedProperty, setSelectedProperty] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const { data: properties } = useAdminData('properties')
 
   const openPropertyModal = (property) => {
     setSelectedProperty(property)

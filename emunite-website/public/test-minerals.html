@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Minerals Data</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .mineral { border: 1px solid #ccc; margin: 10px; padding: 10px; }
+        button { padding: 10px 20px; margin: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Test Minerals Data</h1>
+    <button onclick="initializeMinerals()">Initialize Minerals Data</button>
+    <button onclick="showMinerals()">Show Current Minerals</button>
+    <div id="result"></div>
+
+    <script>
+        function initializeMinerals() {
+            const sampleMinerals = [
+                {
+                    id: 1,
+                    name: "Cassiterite",
+                    description: "High-grade tin ore with excellent purity levels for industrial applications",
+                    image: "/WhatsApp Image 2025-08-31 at 12.02.45 AM.jpeg",
+                    purity: "95%+",
+                    applications: ["Electronics", "Soldering", "Alloys", "Coatings"],
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: 2,
+                    name: "Gold Ore",
+                    description: "Premium gold deposits with high concentration and quality extraction",
+                    image: "/WhatsApp Image 2025-08-31 at 12.02.48 AM.jpeg",
+                    purity: "98%+",
+                    applications: ["Jewelry", "Electronics", "Investment", "Industrial"],
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: 3,
+                    name: "Iron Ore",
+                    description: "High-quality iron ore suitable for steel production and manufacturing",
+                    image: "/WhatsApp Image 2025-08-31 at 12.02.58 AM.jpeg",
+                    purity: "92%+",
+                    applications: ["Steel Production", "Construction", "Manufacturing", "Infrastructure"],
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: 4,
+                    name: "Columbite",
+                    description: "High-grade columbite ore for advanced technology applications",
+                    image: "/WhatsApp Image 2025-08-31 at 12.02.59 AM.jpeg",
+                    purity: "90%+",
+                    applications: ["Electronics", "Aerospace", "Medical Devices", "Superconductors"],
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: 5,
+                    name: "Tantalite",
+                    description: "Premium tantalite ore for high-tech manufacturing and electronics",
+                    image: "/WhatsApp Image 2025-08-31 at 12.03.02 AM.jpeg",
+                    purity: "94%+",
+                    applications: ["Capacitors", "Mobile Phones", "Computers", "Medical Implants"],
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: 6,
+                    name: "Quartz",
+                    description: "High-purity quartz crystals for industrial and technological applications",
+                    image: "/WhatsApp Image 2025-08-31 at 12.03.05 AM.jpeg",
+                    purity: "99%+",
+                    applications: ["Glass Manufacturing", "Electronics", "Optics", "Semiconductors"],
+                    createdAt: new Date().toISOString()
+                }
+            ];
+            
+            localStorage.setItem('admin_minerals', JSON.stringify(sampleMinerals));
+            document.getElementById('result').innerHTML = '<p style="color: green;">✅ Minerals data initialized successfully!</p>';
+        }
+        
+        function showMinerals() {
+            const minerals = JSON.parse(localStorage.getItem('admin_minerals') || '[]');
+            let html = `<h2>Current Minerals (${minerals.length}):</h2>`;
+            
+            minerals.forEach(mineral => {
+                html += `
+                    <div class="mineral">
+                        <h3>${mineral.name}</h3>
+                        <p>${mineral.description}</p>
+                        <p><strong>Purity:</strong> ${mineral.purity}</p>
+                        <p><strong>Image:</strong> ${mineral.image}</p>
+                        <p><strong>Applications:</strong> ${mineral.applications.join(', ')}</p>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('result').innerHTML = html;
+        }
+    </script>
+</body>
+</html>

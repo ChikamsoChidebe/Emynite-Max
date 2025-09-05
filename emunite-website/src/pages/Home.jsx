@@ -25,10 +25,11 @@ import ServicesSection from '../components/ServicesSection'
 import StatsSection from '../components/StatsSection'
 import TestimonialsSection from '../components/TestimonialsSection'
 import CTASection from '../components/CTASection'
-import { properties } from '../data/properties'
+import { useAdminData } from '../hooks/useAdminData'
 
 const Home = () => {
-  const featuredProperties = properties.filter(property => property.featured).slice(0, 3)
+  const { data: properties } = useAdminData('properties')
+  const featuredProperties = (properties || []).filter(property => property.featured).slice(0, 3)
 
   return (
     <div className="pt-28 lg:pt-32">

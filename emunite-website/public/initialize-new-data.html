@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Initialize New Agricultural & Mineral Data</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
+        button { padding: 15px 30px; font-size: 16px; margin: 10px; cursor: pointer; }
+        .init-btn { background: #16a34a; color: white; border: none; border-radius: 5px; }
+        .init-btn:hover { background: #15803d; }
+        .success { color: #16a34a; margin-top: 20px; }
+        .info { background: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Initialize New Data</h1>
+    
+    <div class="info">
+        <h3>What this will do:</h3>
+        <p>✅ Clear all existing admin data</p>
+        <p>✅ Initialize 24 new agricultural products with your images</p>
+        <p>✅ Initialize 15 comprehensive minerals with your images</p>
+        <p>✅ Restore all other data (properties, automobiles, etc.)</p>
+    </div>
+    
+    <button class="init-btn" onclick="initializeNewData()">Initialize New Data</button>
+    <div id="result"></div>
+
+    <script>
+        function initializeNewData() {
+            // Clear all existing data
+            const keys = [
+                'admin_properties',
+                'admin_automobiles', 
+                'admin_agriculture',
+                'admin_minerals',
+                'admin_investments',
+                'admin_contracts',
+                'admin_importExport',
+                'admin_auth'
+            ];
+            
+            keys.forEach(key => {
+                localStorage.removeItem(key);
+            });
+            
+            document.getElementById('result').innerHTML = 
+                '<div class="success">✅ All data cleared and ready for re-initialization!<br><br>' +
+                '<strong>Next Steps:</strong><br>' +
+                '1. Go to <a href="/admin/login">Admin Login</a><br>' +
+                '2. Login with password: emynitemax2024<br>' +
+                '3. You will see:<br>' +
+                '   - Agriculture: 24 products<br>' +
+                '   - Mining: 15 minerals<br>' +
+                '   - Properties: 7 properties<br>' +
+                '   - All other sections restored</div>';
+        }
+    </script>
+</body>
+</html>
